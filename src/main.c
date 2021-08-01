@@ -76,12 +76,11 @@ int containFinalState(set_state *set) {
     int i, state;
     for ( i = 0; i < N_STATE; i++)
     {
-        state = set->states[i]; 
-        if (FINAL_STATES[state] != -1) 
+        state = set->states[i];
+        if (state != -1 && FINAL_STATES[state]) 
             return 1; 
     }
-    return 0;
-    
+    return 0;   
 }
 
 void clean_set(set_state* set) {
@@ -111,7 +110,6 @@ void print_set(set_state *set) {
     {
         printf("%d, ", set->states[i]);
     }
-    
     printf("}\n");
 }
 
